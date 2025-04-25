@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download Video</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+  <div class="max-w-lg mx-auto mt-20 p-6 bg-gray-800 rounded-xl shadow-lg text-center">
+    <h2 class="text-xl font-bold mb-3">🎉 Download Ready</h2>
+    <p class="text-lg font-semibold mb-2">{{ title }}</p>
+    <img src="{{ thumbnail }}" alt="Thumbnail" class="w-64 mx-auto rounded shadow mb-4">
+
+    <!-- ✅ Download Video Form -->
+    <form method="GET" action="{{ url_for('download_video') }}">
+      <input type="hidden" name="video_url" value="{{ video_url }}">
+      <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-3 transition">
+        ⬇️ Download Video
+      </button>
+    </form>
+
+    <!-- 🏠 Back to Home Button -->
+    <a href="/" class="text-blue-400 hover:text-blue-500 text-lg mt-4 block">
+      🏠 Back to Home
+    </a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black; /* Set background color of body to black */
+    color: rgb(20, 2, 2); /* Set text color to white for visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: black; /* Set background color of container to black */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    text-align: center;
+    color: white; /* Set text color to white for h1 */
+    margin-bottom: 20px;
+}
+
+/* Tab styling */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.tabs button:hover {
+    background-color: #0056b3;
+}
+
+.tabs button.active {
+    background-color: #0056b3;
+}
+
+/* Form styling */
+.form-container {
+    display: none;
+}
+
+.form-container.active {
+    display: block;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    background-color: black; /* Set background color of input fields to black */
+    color: white; /* Set text color inside inputs to white */
+}
+
+.input-group input:focus {
+    border-color: #007BFF;
+}
+
+.input-group button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-group button:hover {
+    background-color: #0056b3;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Google Sign-In Button */
+.google-signin-button {
+    background-color: #4285F4;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.google-signin-button:hover {
+    background-color: #357ae8;
+}
