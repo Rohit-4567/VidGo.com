@@ -19,7 +19,7 @@ def index():
         platform = detect_platform(url)
 
         if platform == 'youtube':
-            return redirect(url_for('download_page', url=url))
+            return redirect(url_for('download_page', url=url))  # Redirect to download page with the URL
         else:
             return "❌ Invalid URL or unsupported platform."
     return render_template('index.html')
@@ -38,10 +38,10 @@ def download_page():
     except Exception as e:
         return f"❌ Error fetching video info: {str(e)}"
 
-# ----------- Download Video Route -----------
-@app.route('/download_video')
+# ----------- Download Video Route ----------- (Updated to handle GET method)
+@app.route('/download_video', methods=['GET'])
 def download_video():
-    video_url = request.args.get('video_url')
+    video_url = request.args.get('video_url')  # Get video URL from the form
     try:
         temp_dir = tempfile.gettempdir()
         ydl_opts = {
@@ -55,6 +55,6 @@ def download_video():
     except Exception as e:
         return f"❌ Error downloading video: {str(e)}"
 
-# ----------- Run App -----------
+# ----------- Run App ----------- (Make sure to run the app on all IPs to be accessible)
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
