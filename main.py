@@ -1,11 +1,11 @@
-# Let's modify the provided Flask app code accordingly, including the updates to the form submission and method handling.
-
 import os
 import tempfile
 from flask import Flask, request, send_file, render_template, redirect, url_for
+from flask_cors import CORS
 import yt_dlp
 
 app = Flask(__name__)
+CORS(app)  # ✅ CORS enabled for all routes
 
 # ----------- Platform Detector Function -----------
 def detect_platform(url):
@@ -34,7 +34,7 @@ def download_page():
     else:
         video_url = request.args.get('url')
         
-    print(f"Video URL: {video_url}")  # For debuggings
+    print(f"Video URL: {video_url}")  # For debugging
     try:
         ydl_opts = {'format': 'best', 'quiet': True, 'nocheckcertificate': True}
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -46,11 +46,11 @@ def download_page():
         print(f"Error: {e}")  # Log the error
         return f"❌ Error fetching video info: {str(e)}"
 
-# ----------- Download Video Route ----------- (Updated to handle GET method) 
+# ----------- Download Video Route -----------
 @app.route('/download_video', methods=['GET'])
 def download_video():
-    video_url = request.args.get('video_url')  # Get video URL from the query parameter
-    print(f"Download Video URL: {video_url}")  # For debugging
+    video_url = request.args.get('video_url')
+    print(f"Download Video URL: {video_url}")
     try:
         temp_dir = tempfile.gettempdir()
         ydl_opts = {
@@ -62,9 +62,9 @@ def download_video():
             filename = ydl.prepare_filename(info)
         return send_file(filename, as_attachment=True, download_name=os.path.basename(filename))
     except Exception as e:
-        print(f"Error: {e}")  # Log the error
+        print(f"Error: {e}")
         return f"❌ Error downloading video: {str(e)}"
 
-# ----------- Run App ----------- (Make sure to run the app on all IPs to be accessible)
+# ----------- Run App -----------
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
