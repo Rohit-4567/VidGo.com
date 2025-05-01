@@ -34,7 +34,7 @@ def download_page():
     else:
         video_url = request.args.get('url')
         
-    print(f"Video URL: {video_url}")  # For debugging
+    print(f"Video URL: {video_url}")  # For debuggings
     try:
         ydl_opts = {'format': 'best', 'quiet': True, 'nocheckcertificate': True}
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
