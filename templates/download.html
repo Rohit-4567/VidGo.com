@@ -10,6 +10,7 @@
 <body class="bg-gray-900 text-white">
   <div class="max-w-lg mx-auto mt-20 p-6 bg-gray-800 rounded-xl shadow-lg text-center">
     <h2 class="text-xl font-bold mb-3">🎉 Download Ready</h2>
+<<<<<<< HEAD:templates/download.html
     <p class="text-lg font-semibold mb-2">{{ title }}</p>
     
     <!-- Display video thumbnail with fallback -->
@@ -20,6 +21,15 @@
     <form method="GET" action="{{ url_for('download_video') }}">
       <!-- Hidden input to pass video URL to the download route -->
       <input type="hidden" name="video_url" value="{{ video_url }}">
+=======
+    <p class="text-lg font-semibold mb-2">My Video</p> <!-- Static Title Here -->
+    <img src="path_to_thumbnail.jpg" alt="Thumbnail" class="w-64 mx-auto rounded shadow mb-4"> <!-- Static Thumbnail -->
+
+    <!-- ✅ Download Video Form -->
+    <form method="GET" action="http://rohit-4567.github.io/VidGo.com/download_video">
+      <!-- Static URL for video download -->
+      <input type="hidden" name="video_url" value="https://example.com/video.mp4"> <!-- Static Video URL -->
+>>>>>>> e8f664c53022db8475a92e10d5f5907ff6a60e1c:download.html
       <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-3 transition">
         ⬇️ Start Downloading
       </button>
