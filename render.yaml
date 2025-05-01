@@ -1,10 +1,8 @@
 services:
   - type: web
-    name: flask-video-downloader
+    name: vidgo
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn main:app
-    envVars:
-      - key: FLASK_ENV
-        value: production
-
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"   # Yeh sahi hona chahiye
+    plan: free
+    region: oregon
