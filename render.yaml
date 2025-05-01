@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: vidgo
+    name: flask-video-downloader
     env: python
     buildCommand: "pip install -r requirements.txt"
     startCommand: "gunicorn app:app"   # Yeh sahi hona chahiye
